@@ -5,10 +5,15 @@
     "node": true,
     "jest": true
   },
+  "globals": {
+    "React": true,
+    "JSX": true
+  },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -26,12 +31,28 @@
   ],
   "rules": {
     "prettier/prettier": "error",
+    "indent": ["error", 2],
+    "import/extensions": [1, {
+      ".ts": "never",
+      ".js": "never"
+    }],
     "react/prop-types": "off",
     "react/function-component-definition": [1, {
       "namedComponents": "arrow-function",
       "unnamedComponents": "arrow-function"
     }],
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "space-before-function-paren": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  },
+  "settings": {
+    "import/resolver": {
+      "eslint-import-resolver-typescript": {}
+    }
   }
 }
