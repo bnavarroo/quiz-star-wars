@@ -12,5 +12,5 @@ export const Container = styled(FlexContainer).attrs({
 `;
 
 export const Wrapper = styled(ContainerBox)`
-  ${({ theme }) => getContentMinHeight(theme, false)}
+  ${({ theme }) => getContentMinHeight(theme, true)}
 `;

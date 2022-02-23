@@ -21,8 +21,8 @@ const AppTheme: TTheme = {
   },
   header: {
     height: {
-      desktop: '118px',
-      mobile: '151px',
+      desktop: '112px',
+      mobile: '154px',
     },
   },
   footer: {

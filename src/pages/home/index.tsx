@@ -1,5 +1,5 @@
-import React from 'react';
 import type { NextPage } from 'next';
+import Link from 'next/link';
 import BasicTemplate from '@templates/basic';
 import {
   Container,
@@ -17,10 +17,12 @@ const Home: NextPage = () => (
         <Logo />
         <Title>StarQuiz</Title>
         <Subtitle>
-          Teste seus conhecimentos e prove que você é mestre quando o assunto é
-          StarWars! (ou não né rsrs)
+          Teste seus conhecimentos e prove que você é mestre (ou não né rsrs)
+          quando o assunto é StarWars!
         </Subtitle>
-        <Button $type="primary">Iniciar o Quiz</Button>
+        <Link href="/game">
+          <Button $type="primary">Iniciar o Quiz</Button>
+        </Link>
       </Wrapper>
     </Container>
   </BasicTemplate>
