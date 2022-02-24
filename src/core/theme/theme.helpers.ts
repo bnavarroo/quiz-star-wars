@@ -1,6 +1,6 @@
 import { ITheme } from './theme.types';
 
-const getContentMinHeight = (theme: ITheme, hasHeader: boolean) => {
+const getContentMinHeight = (theme: ITheme, hasHeader: boolean): string => {
   const heightMobile = hasHeader
     ? `${theme.header.height.mobile} - ${theme.footer.height.mobile}`
     : theme.footer.height.mobile;

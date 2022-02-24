@@ -1,16 +1,13 @@
 import Head from 'next/head';
-import { IProps } from './head.types';
 
-const MyHead: React.FC<IProps> = ({ title }) => (
+const MyHead: React.FC = () => (
   <Head>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <title>Quiz StarWars {title ? ` - ${title}` : ''}</title>
+    <title>StarQuiz | Bruno Navarro</title>
   </Head>
 );
-
-MyHead.defaultProps = { title: '' };
 
 export default MyHead;

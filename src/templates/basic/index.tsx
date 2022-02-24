@@ -3,19 +3,14 @@ import Footer from '@shared/components/footer';
 import { ITemplateDefaultProps } from '@templates/template.types';
 import { Container, Wrapper } from './basic.styles';
 
-const BasicTemplate: React.FC<ITemplateDefaultProps> = ({
-  children,
-  title,
-}) => (
+const BasicTemplate: React.FC<ITemplateDefaultProps> = ({ children }) => (
   <>
-    <Head title={title} />
+    <Head />
     <Container>
       <Wrapper>{children}</Wrapper>
       <Footer />
     </Container>
   </>
 );
-
-BasicTemplate.defaultProps = { title: '' };
 
 export default BasicTemplate;

@@ -3,7 +3,7 @@ import { ContainerBox } from '@styles/ui/container/container.styles';
 import { FlexContainer } from '@styles/ui/flex/flex.styles';
 import { DarthLogo } from '@styles/ui/logo/logo.styles';
 
-export const Container = styled(ContainerBox).attrs({ $full: true })``;
+export const Container = styled(ContainerBox)``;
 
 export const Wrapper = styled(FlexContainer).attrs({
   $direction: 'column',
