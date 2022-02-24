@@ -1,4 +1,4 @@
-export type TSizeOnDevice = {
+export interface ISizeOnDevice {
   desktop: string;
   mobile: string;
-};
+}

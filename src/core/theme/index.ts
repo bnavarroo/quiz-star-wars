@@ -1,6 +1,6 @@
-import { TTheme } from './theme.types';
+import { ITheme } from './theme.types';
 
-const AppTheme: TTheme = {
+const AppTheme: Readonly<ITheme> = {
   fontSize: '14px',
   fontWeight: 300,
   paddingBox: '20px',

@@ -1,6 +1,6 @@
-import { TTheme } from './theme.types';
+import { ITheme } from './theme.types';
 
-const getContentMinHeight = (theme: TTheme, hasHeader: boolean) => {
+const getContentMinHeight = (theme: ITheme, hasHeader: boolean) => {
   const heightMobile = hasHeader
     ? `${theme.header.height.mobile} - ${theme.footer.height.mobile}`
     : theme.footer.height.mobile;

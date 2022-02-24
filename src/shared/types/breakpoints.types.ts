@@ -1,11 +1,11 @@
-type TBreakpointsMinMax = {
+interface IBreakpointsMinMax {
   min: string;
   max: string;
-};
+}
 
-export type TBreakpoints = {
-  desktop: TBreakpointsMinMax;
-  desktopSmall: TBreakpointsMinMax;
-  tablet: TBreakpointsMinMax;
-  mobile: TBreakpointsMinMax;
-};
+export interface IBreakpoints {
+  desktop: IBreakpointsMinMax;
+  desktopSmall: IBreakpointsMinMax;
+  tablet: IBreakpointsMinMax;
+  mobile: IBreakpointsMinMax;
+}

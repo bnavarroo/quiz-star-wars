@@ -21,7 +21,7 @@ const Home: NextPage = () => (
           quando o assunto é StarWars!
         </Subtitle>
         <Link href="/game">
-          <Button $type="primary">Iniciar o Quiz</Button>
+          <Button>Iniciar o Quiz</Button>
         </Link>
       </Wrapper>
     </Container>

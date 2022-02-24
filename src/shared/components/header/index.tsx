@@ -1,7 +1,7 @@
-import { Props } from './header.types';
+import { IProps } from './header.types';
 import { Container, Wrapper, Logo, Title } from './header.styles';
 
-const Header: React.FC<Props> = ({ children }) => (
+const Header: React.FC<IProps> = ({ children }) => (
   <Container as="header">
     <Wrapper>
       <Logo />

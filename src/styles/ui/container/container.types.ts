@@ -1,3 +1,3 @@
-export type ContainerBoxProps = {
+export interface IContainerBoxProps {
   $full?: boolean;
-};
+}

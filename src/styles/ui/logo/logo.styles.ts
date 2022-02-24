@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import DarthLogoSvg from '@assets/img/darth-logo.svg';
-import { DarthLogoProps } from './logo.types';
+import { IDarthLogoProps } from './logo.types';
 
-export const DarthLogo = styled(DarthLogoSvg)<DarthLogoProps>`
+export const DarthLogo = styled(DarthLogoSvg)<IDarthLogoProps>`
   width: 100%;
   height: auto;
   stroke-width: 1px;

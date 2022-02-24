@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { Props } from './head.types';
+import { IProps } from './head.types';
 
-const MyHead: React.FC<Props> = ({ title }) => (
+const MyHead: React.FC<IProps> = ({ title }) => (
   <Head>
     <meta
       name="viewport"

@@ -1,24 +1,17 @@
-import { TBreakpoints } from '@shared/types/breakpoints.types';
-import { TSizeOnDevice } from '@shared/types/device.types';
+import { IBreakpoints } from '@shared/types/breakpoints.types';
+import { ISizeOnDevice } from '@shared/types/device.types';
+import { IColors, IColorsText } from '@shared/types/colors.types';
 
-export type TTheme = {
+export interface ITheme {
   fontSize: string;
   fontWeight: number;
   paddingBox: string;
-  breakpoints: TBreakpoints;
-  colors: {
-    primary: string;
-    secondary: string;
-    text: {
-      default: string;
-      onPrimary: string;
-      onSecondary: string;
-    };
-  };
+  breakpoints: IBreakpoints;
+  colors: IColors & IColorsText;
   header: {
-    height: TSizeOnDevice;
+    height: ISizeOnDevice;
   };
   footer: {
-    height: TSizeOnDevice;
+    height: ISizeOnDevice;
   };
-};
+}

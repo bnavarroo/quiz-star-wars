@@ -1,9 +1,12 @@
 import Head from '@shared/components/head';
 import Footer from '@shared/components/footer';
-import { TemplateDefaultProps } from '@templates/template.types';
+import { ITemplateDefaultProps } from '@templates/template.types';
 import { Container, Wrapper } from './basic.styles';
 
-const BasicTemplate: React.FC<TemplateDefaultProps> = ({ children, title }) => (
+const BasicTemplate: React.FC<ITemplateDefaultProps> = ({
+  children,
+  title,
+}) => (
   <>
     <Head title={title} />
     <Container>

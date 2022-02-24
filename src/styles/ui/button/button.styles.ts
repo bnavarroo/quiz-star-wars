@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { StyledButtonProps } from './button.types';
+import { IStyledButtonProps } from './button.types';
 import { getColorsForButton } from './button.helpers';
 
-export const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.button<IStyledButtonProps>`
   cursor: pointer;
   font-size: 22px;
   outline: none;

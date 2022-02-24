@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { FlexContainerProps, FlexItemProps } from './flex.types';
+import { IFlexContainerProps, IFlexItemProps } from './flex.types';
 
-export const FlexContainer = styled.div<FlexContainerProps>`
+export const FlexContainer = styled.div<IFlexContainerProps>`
   display: flex;
   ${({ $direction, $flexWrap, $justifyContent, $alignItems }) => css`
     ${$direction && `flex-direction: ${$direction};`}
@@ -11,7 +11,7 @@ export const FlexContainer = styled.div<FlexContainerProps>`
   `}
 `;
 
-export const FlexItem = styled.div<FlexItemProps>`
+export const FlexItem = styled.div<IFlexItemProps>`
   ${({ $order, $grow, $basis, $shrink }) => css`
     ${$order && `order: ${$order};`}
     ${$grow && `flex-grow: ${$grow};`}

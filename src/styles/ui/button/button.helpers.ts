@@ -1,7 +1,7 @@
-import { TTheme } from '@core/theme/theme.types';
+import { ITheme } from '@core/theme/theme.types';
 
 export const getColorsForButton = (
-  theme: TTheme,
+  theme: ITheme,
   type: string,
   outline: boolean
 ) => {

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { ContainerBoxProps } from './container.types';
+import { IContainerBoxProps } from './container.types';
 
-export const ContainerBox = styled.div<ContainerBoxProps>`
+export const ContainerBox = styled.div<IContainerBoxProps>`
   ${({ theme }) => css`
     width: 100%;
     padding-left: ${theme.paddingBox};

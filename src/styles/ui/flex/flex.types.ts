@@ -1,25 +1,34 @@
-type FlexAlign = 'flex-start' | 'flex-end' | 'center';
+type TFlexAlign = 'flex-start' | 'flex-end' | 'center';
 
-export type FlexContainerProps = {
-  $direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  $flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  $justifyContent?:
-    | FlexAlign
-    | 'space-between'
-    | 'space-around'
-    | 'space evenly';
-  $alignItems?: FlexAlign | 'baseline' | 'stretch';
-  $alignContent?:
-    | FlexAlign
-    | 'baseline'
-    | 'stretch'
-    | 'space-between'
-    | 'space-around';
-};
+type TFlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
-export type FlexItemProps = {
+type TFlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+
+type TFlexJustify =
+  | TFlexAlign
+  | 'space-between'
+  | 'space-around'
+  | 'space evenly';
+
+type TFlexAlignItems = TFlexAlign | 'baseline' | 'stretch';
+
+type TFlexAlignContent =
+  | 'baseline'
+  | 'stretch'
+  | 'space-between'
+  | 'space-around';
+
+export interface IFlexContainerProps {
+  $direction?: TFlexDirection;
+  $flexWrap?: TFlexWrap;
+  $justifyContent?: TFlexJustify;
+  $alignItems?: TFlexAlignItems;
+  $alignContent?: TFlexAlignContent;
+}
+
+export interface IFlexItemProps {
   $order?: number;
   $grow?: number;
   $basis?: number | 'auto';
   $shrink?: number | string;
-};
+}
