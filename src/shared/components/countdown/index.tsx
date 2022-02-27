@@ -1,5 +1,5 @@
-import withCountdown from '@utilities/hocs/countdown';
-import { IProps } from '@utilities/hocs/countdown/countdown.types';
+import withCountdown from '@utilities/hocs/with-countdown';
+import { IProps } from '@utilities/hocs/with-countdown/with-countdown.types';
 import { Container, Text, Icon } from './countdown.styles';
 
 const Countdown: React.FC<IProps> = ({ timeLeft }) => (

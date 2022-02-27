@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { IProps } from './header.types';
 import { Container, Wrapper, Logo, Title } from './header.styles';
 
@@ -11,4 +12,4 @@ const Header: React.FC<IProps> = ({ children }) => (
   </Container>
 );
 
-export default Header;
+export default memo(Header);

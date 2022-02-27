@@ -18,4 +18,4 @@ export interface IHttpResponse<T> {
   message?: IHttpResponseMsg;
 }
 
-export type IHttpResponseFetch = Promise<IHttpResponse<unknown>> | null;
+export type IHttpResponseFetch<T> = Promise<IHttpResponse<T>> | null;

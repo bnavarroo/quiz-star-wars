@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import {
   THttpMethod,
   IHttpResponseFetch,
@@ -23,7 +24,10 @@ const getHttpRequestHeaders = (method: THttpMethod): IHttpResponseHeaders => ({
   }),
 });
 
-const executeHttpRequest = (url: string, headers: object): IHttpResponseFetch =>
+const executeHttpRequest = <T>(
+  url: string,
+  headers: object
+): IHttpResponseFetch<T> =>
   fetch(url, headers).then(async (response) => {
     const { status, statusText } = response;
     const result = await response.json();
@@ -42,10 +46,10 @@ export const statusMessages = {
   500: { text: 'Houve um erro ao buscar os dados.' },
 };
 
-export const get = (
+export const get = <T>(
   url: string,
   queryParams: object = {}
-): IHttpResponseFetch => {
+): IHttpResponseFetch<T> => {
   try {
     const fmtUrl = `${url}${objectToUrlParams(queryParams)}`;
     const fmtHeaders = getHttpRequestHeaders('get');

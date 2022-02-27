@@ -8,4 +8,5 @@ export interface IBreakpoints {
   desktopSmall: IBreakpointsMinMax;
   tablet: IBreakpointsMinMax;
   mobile: IBreakpointsMinMax;
+  mobileSmall: IBreakpointsMinMax;
 }

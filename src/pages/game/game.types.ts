@@ -4,3 +4,9 @@ export interface IProps {
   data: TGetCharacters;
   fallback: unknown;
 }
+
+export interface IAnswer {
+  name: string;
+  answer: string;
+  usedHelp: boolean;
+}

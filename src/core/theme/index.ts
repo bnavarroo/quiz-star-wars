@@ -8,7 +8,8 @@ const AppTheme: Readonly<ITheme> = {
     desktop: { min: '1200px', max: '100vw' },
     desktopSmall: { min: '1024px', max: '1199.98px' },
     tablet: { min: '640px', max: '1023.98px' },
-    mobile: { min: '0px', max: '639.98px' },
+    mobile: { min: '375px', max: '639.98px' },
+    mobileSmall: { min: '0px', max: '374.98px' },
   },
   colors: {
     primary: '#000',
