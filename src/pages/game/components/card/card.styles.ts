@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { StyledButton } from '@styles/ui/button/button.styles';
+import { FlexContainer } from '@styles/ui/flex/flex.styles';
 
 export const Container = styled.div`
   width: calc(100% - 10px);
@@ -18,3 +20,22 @@ export const Container = styled.div`
 export const Image = styled.img`
   width: 100%;
 `;
+
+export const ButtonsWrapper = styled(FlexContainer)`
+  gap: 10px;
+
+  button {
+    flex-grow: 1;
+  }
+`;
+
+export const ActionButton = styled(StyledButton).attrs({
+  $type: 'primary',
+  $size: 'small',
+})``;
+
+export const HelpButton = styled(StyledButton).attrs({
+  $type: 'primary',
+  $size: 'small',
+  $outline: true,
+})``;

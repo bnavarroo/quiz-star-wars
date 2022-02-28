@@ -35,6 +35,9 @@ export const Subtitle = styled.h3`
 
 export const Logo = styled(DarthLogo).attrs({ $maxWidth: '300px' })``;
 
-export const Button = styled(StyledButton).attrs({ $type: 'primary' })`
+export const Button = styled(StyledButton).attrs({
+  $type: 'primary',
+  $size: 'big',
+})`
   margin-top: 20px;
 `;

@@ -16,7 +16,7 @@ const CardInput: React.FC<IProps> = ({ setReply, registerReply, disabled }) => {
     <Input
       ref={ref}
       type="text"
-      placeholder="Digite o nome"
+      placeholder="E aí, sabe meu nome?"
       disabled={disabled}
     />
   );

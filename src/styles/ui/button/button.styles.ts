@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { IStyledButtonProps } from './button.types';
-import { getColorsForButton } from './button.helpers';
+import { getColorsForButton, getSizeForButton } from './button.helpers';
 
 export const StyledButton = styled.button<IStyledButtonProps>`
   cursor: pointer;
-  font-size: 22px;
   outline: none;
   border-style: solid;
   border-width: 2px;
@@ -14,6 +13,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
   letter-spacing: 2px;
   ${({ theme, $type, $outline }) =>
     getColorsForButton(theme, $type, !!$outline)};
+  ${({ $size }) => getSizeForButton($size)};
 `;
 
 export default StyledButton;

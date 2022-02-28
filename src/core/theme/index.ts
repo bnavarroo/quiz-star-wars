@@ -13,7 +13,7 @@ const AppTheme: Readonly<ITheme> = {
   },
   colors: {
     primary: '#000',
-    secondary: '#AFAF9D',
+    secondary: '#F9F9DE',
     text: {
       default: '#333',
       onPrimary: '#FDFF00',

@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import ReactDOM from 'react-dom';
+import closeModal from './modal.helpers';
 import { IProps } from './modal.types';
 import {
   Backdrop,
+  Container,
   Wrapper,
-  StyledModal,
-  Header,
   CloseButton,
+  CloseIcon,
   Content,
 } from './modal.styles';
 
@@ -14,23 +16,22 @@ const Modal: React.FunctionComponent<IProps> = ({
   onHide,
   children,
 }) => {
+  const [open, setOpen] = useState<boolean>(isVisible);
   const modalComponent = (
     <>
       <Backdrop />
-      <Wrapper>
-        <StyledModal>
-          <Header>
-            <CloseButton onClick={onHide}>X</CloseButton>
-          </Header>
+      <Container>
+        <Wrapper>
+          <CloseButton onClick={closeModal(setOpen, onHide)}>
+            <CloseIcon />
+          </CloseButton>
           <Content>{children}</Content>
-        </StyledModal>
-      </Wrapper>
+        </Wrapper>
+      </Container>
     </>
   );
 
-  return isVisible
-    ? ReactDOM.createPortal(modalComponent, document.body)
-    : null;
+  return open ? ReactDOM.createPortal(modalComponent, document.body) : null;
 };
 
 export default Modal;

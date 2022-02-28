@@ -1,10 +1,11 @@
 import { ITheme } from '@core/theme/theme.types';
+import { TSizesButton } from './button.types';
 
 export const getColorsForButton = (
   theme: ITheme,
   type: string,
   outline: boolean
-) => {
+): string => {
   const textOnColor = {
     primary: 'onPrimary',
     secondary: 'onSecondary',
@@ -26,4 +27,14 @@ export const getColorsForButton = (
   `;
 };
 
-export default getColorsForButton;
+export const getSizeForButton = (size?: TSizesButton): string => {
+  const sizes = {
+    default: '18px',
+    small: '14px',
+    big: '22px',
+  };
+
+  const fontSize = sizes[size] ?? sizes.default;
+
+  return `font-size: ${fontSize}`;
+};

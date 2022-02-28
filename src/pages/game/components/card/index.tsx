@@ -1,7 +1,13 @@
 import { memo, useState, useEffect } from 'react';
 import CardInput from '@pages/game/components/card-input';
 import { IProps } from './card.types';
-import { Container, Image } from './card.styles';
+import {
+  Container,
+  Image,
+  ButtonsWrapper,
+  ActionButton,
+  HelpButton,
+} from './card.styles';
 
 const Card: React.FC<IProps> = ({ character, callback }) => {
   const [registerReply, setRegisterReply] = useState<boolean>(false);
@@ -24,6 +30,8 @@ const Card: React.FC<IProps> = ({ character, callback }) => {
     (!registerReply && reply.length > 0) ||
     (registerReply && reply.length === 0);
 
+  const actionButtonText = !reply ? 'enviar' : 'editar resposta';
+
   return (
     <Container>
       <Image src={image} alt="?" />
@@ -35,18 +43,20 @@ const Card: React.FC<IProps> = ({ character, callback }) => {
         }}
         disabled={isDisabledInput}
       />
-      <button
-        type="button"
-        onClick={() => {
-          if (!reply) {
-            setRegisterReply(true);
-          } else {
-            setSeply('');
-          }
-        }}
-      >
-        {!reply ? 'Enviar' : 'Editar'}
-      </button>
+      <ButtonsWrapper>
+        <ActionButton
+          onClick={() => {
+            if (!reply) {
+              setRegisterReply(true);
+            } else {
+              setSeply('');
+            }
+          }}
+        >
+          {actionButtonText}
+        </ActionButton>
+        {!reply && <HelpButton type="button">Ajuda</HelpButton>}
+      </ButtonsWrapper>
     </Container>
   );
 };
