@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import closeModal from './modal.helpers';
 import { IProps } from './modal.types';
@@ -17,6 +17,11 @@ const Modal: React.FunctionComponent<IProps> = ({
   children,
 }) => {
   const [open, setOpen] = useState<boolean>(isVisible);
+
+  useEffect(() => {
+    setOpen(isVisible);
+  }, [isVisible]);
+
   const modalComponent = (
     <>
       <Backdrop />

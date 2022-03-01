@@ -6,4 +6,5 @@ export type TCallbackProp = (arg: IAnswer) => void;
 export interface IProps {
   character: ICharacter;
   callback: TCallbackProp;
+  endOfGame: boolean;
 }

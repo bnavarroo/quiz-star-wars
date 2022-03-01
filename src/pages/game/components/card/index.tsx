@@ -1,5 +1,6 @@
 import { memo, useState, useEffect } from 'react';
 import CardInput from '@pages/game/components/card-input';
+import ModalHelp from '@pages/game/components/modal-help';
 import { IProps } from './card.types';
 import {
   Container,
@@ -9,10 +10,15 @@ import {
   HelpButton,
 } from './card.styles';
 
-const Card: React.FC<IProps> = ({ character, callback }) => {
+const Card: React.FC<IProps> = ({ character, callback, endOfGame }) => {
   const [registerReply, setRegisterReply] = useState<boolean>(false);
   const [reply, setSeply] = useState<string>('');
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const [usedHelp, setUsedHelp] = useState<boolean>(false);
+
+  useEffect(() => {
+    setOpenModal(false);
+  }, [endOfGame]);
 
   useEffect(() => {
     if (reply.length > 0) {
@@ -55,7 +61,22 @@ const Card: React.FC<IProps> = ({ character, callback }) => {
         >
           {actionButtonText}
         </ActionButton>
-        {!reply && <HelpButton type="button">Ajuda</HelpButton>}
+        {!reply && (
+          <HelpButton
+            type="button"
+            onClick={() => {
+              setUsedHelp(true);
+              setOpenModal(true);
+            }}
+          >
+            Ajuda
+          </HelpButton>
+        )}
+        <ModalHelp
+          character={character}
+          isVisible={openModal}
+          onHide={() => setOpenModal(false)}
+        />
       </ButtonsWrapper>
     </Container>
   );

@@ -19,7 +19,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
     <SWRConfig value={fallback}>
       <Header>
         <Countdown
-          initialTime={10}
+          initialTime={15}
           callbackEndOfTime={finishTime(setHasTime)}
         />
       </Header>
@@ -28,6 +28,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
           <Card
             key={character.name}
             character={character}
+            endOfGame={!hasTime}
             callback={(receivedAnswer: IAnswer) => {
               const newAnswers = [...answers];
               const currentAnswer = newAnswers.filter(

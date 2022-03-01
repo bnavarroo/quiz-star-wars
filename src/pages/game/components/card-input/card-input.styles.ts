@@ -10,6 +10,11 @@ const Input = styled.input`
   width: 100%;
   outline: none;
   text-align: center;
+
+  :disabled {
+    opacity: 0.75;
+    background: #eee;
+  }
 `;
 
 export default Input;
