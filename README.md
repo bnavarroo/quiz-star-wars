@@ -3,7 +3,7 @@
   <h1 align="center">Quiz Star Wars</h1>
 </p>
 <p align="center">
-  <a href="https://github-users-statistics.vercel.app/" target="_blank">
+  <a href="https://quiz-star-wars-bnavarroo.vercel.app" target="_blank">
     Clique aqui para ver a aplicação
   </a>
 </p>
