@@ -4,10 +4,12 @@
     "paths": {
       "@assets*": [ "src/assets*" ],
       "@core*": [ "src/core*" ],
+      "@modules*": [ "src/modules*" ],
       "@pages*": [ "src/pages*" ],
       "@shared*": [ "src/shared*" ],
       "@styles*": [ "src/styles*" ],
       "@templates*": [ "src/templates*" ],
+      "@utilities*": [ "src/utilities*" ],
     }
   }
 }

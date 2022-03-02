@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import Header from '@shared/components/header';
-import { Container, Title, Subtitle, LinkContent } from './404.styles';
+import {
+  Container,
+  Title,
+  Subtitle,
+  LinkContent,
+} from '@modules/pages/404/404.styles';
 
 const Custom404: NextPage = () => (
   <>

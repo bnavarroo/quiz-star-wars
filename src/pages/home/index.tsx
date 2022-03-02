@@ -8,7 +8,7 @@ import {
   Logo,
   Button,
   Rules,
-} from './home.styles';
+} from '@modules/pages/home/home.styles';
 
 const Home: NextPage = () => (
   <Container>

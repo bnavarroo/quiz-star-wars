@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { IProps as IComponentProps } from '@pages/game/components/card/card.types';
+import { IProps as IComponentProps } from '@modules/pages/game/components/card/card.types';
 
 export interface IProps extends IComponentProps {
   image?: string;
