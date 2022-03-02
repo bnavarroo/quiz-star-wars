@@ -41,3 +41,20 @@ export const Button = styled(StyledButton).attrs({
 })`
   margin-top: 20px;
 `;
+
+export const Rules = styled.div`
+  width: 90%;
+  border: 1px solid;
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 20px;
+
+  b {
+    font-size: 22px;
+    line-height: 24px;
+  }
+`;

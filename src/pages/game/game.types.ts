@@ -10,3 +10,9 @@ export interface IAnswer {
   answer: string;
   usedHelp: boolean;
 }
+
+export interface IPropsFromServer {
+  props: {
+    data: TGetCharacters;
+  };
+}

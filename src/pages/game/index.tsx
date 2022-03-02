@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import type { NextPage } from 'next';
 import { SWRConfig } from 'swr';
-import getCharacters from '@core/api/character/character.helpers';
 import Header from '@shared/components/header';
 import Countdown from '@shared/components/countdown';
 import Card from './components/card';
 import ModalResult from './components/modal-result';
 import { IProps, IAnswer } from './game.types';
-import { finishTime } from './game.helpers';
+import {
+  getCharactersOnServer,
+  finishTime,
+  updateAnswers,
+} from './game.helpers';
 import { Wrapper } from './game.styles';
 
 const Game: NextPage<IProps> = ({ data, fallback }) => {
@@ -19,7 +22,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
     <SWRConfig value={fallback}>
       <Header>
         <Countdown
-          initialTime={15}
+          initialTime={120}
           callbackEndOfTime={finishTime(setHasTime)}
         />
       </Header>
@@ -29,19 +32,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
             key={character.name}
             character={character}
             endOfGame={!hasTime}
-            callback={(receivedAnswer: IAnswer) => {
-              const newAnswers = [...answers];
-              const currentAnswer = newAnswers.filter(
-                (value) => value.name === receivedAnswer.name
-              )?.[0];
-              const answerIndex = newAnswers.indexOf(currentAnswer);
-              if (answerIndex !== -1) {
-                newAnswers[answerIndex] = receivedAnswer;
-              } else {
-                newAnswers.push(receivedAnswer);
-              }
-              setAnswers(newAnswers);
-            }}
+            callback={updateAnswers(answers, setAnswers)}
           />
         ))}
       </Wrapper>
@@ -51,24 +42,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
 };
 
 export async function getServerSideProps() {
-  const errorMsg = 'Erro ao buscar dados de personagens';
-  try {
-    const data = await getCharacters();
-    return {
-      props: { data },
-    };
-  } catch (error) {
-    return {
-      props: {
-        data: {
-          error: true,
-          message: {
-            text: errorMsg,
-          },
-        },
-      },
-    };
-  }
+  return getCharactersOnServer();
 }
 
 export default Game;
