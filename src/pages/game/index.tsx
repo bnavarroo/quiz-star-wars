@@ -1,48 +1,50 @@
-import { useState } from 'react';
 import type { NextPage } from 'next';
 import { SWRConfig } from 'swr';
+import withGame from '@utilities/hocs/with-game';
+import { IProps } from '@utilities/hocs/with-game/with-game.types';
 import Header from '@shared/components/header';
 import Countdown from '@shared/components/countdown';
+import PageLoader from '@shared/components/page-loader';
 import Card from '@modules/pages/game/components/card';
 import ModalResult from '@modules/pages/game/components/modal-result';
-import { IProps, IAnswer } from '@modules/pages/game/game.types';
-import {
-  getCharactersOnServer,
+import getCharactersOnServer from '@modules/pages/game/game.helpers';
+import { Wrapper, MoreButton } from '@modules/pages/game/game.styles';
+
+const Game: NextPage<IProps> = ({
+  fallback,
+  characters,
+  hasTime,
+  answers,
+  loading,
+  endOfList,
   finishTime,
   updateAnswers,
-} from '@modules/pages/game/game.helpers';
-import { Wrapper } from '@modules/pages/game/game.styles';
-
-const Game: NextPage<IProps> = ({ data, fallback }) => {
-  const [hasTime, setHasTime] = useState<boolean>(true);
-  const [answers, setAnswers] = useState<Array<IAnswer>>([]);
-  const { result } = data;
-
-  return (
-    <SWRConfig value={fallback}>
-      <Header>
-        <Countdown
-          initialTime={120}
-          callbackEndOfTime={finishTime(setHasTime)}
+  loadMore,
+}) => (
+  <SWRConfig value={fallback}>
+    <Header>
+      <Countdown initialTime={120} callbackEndOfTime={finishTime} />
+    </Header>
+    <Wrapper>
+      {characters.map((character) => (
+        <Card
+          key={character.name}
+          character={character}
+          endOfGame={!hasTime}
+          callback={updateAnswers}
         />
-      </Header>
-      <Wrapper>
-        {result.map((character) => (
-          <Card
-            key={character.name}
-            character={character}
-            endOfGame={!hasTime}
-            callback={updateAnswers(answers, setAnswers)}
-          />
-        ))}
-      </Wrapper>
-      {!hasTime && <ModalResult answers={answers} />}
-    </SWRConfig>
-  );
-};
+      ))}
+    </Wrapper>
+    {!endOfList && (
+      <MoreButton onClick={loadMore}>Carregar mais personagens</MoreButton>
+    )}
+    {!hasTime && <ModalResult answers={answers} />}
+    <PageLoader isVisible={loading} />
+  </SWRConfig>
+);
 
 export async function getServerSideProps() {
   return getCharactersOnServer();
 }
 
-export default Game;
+export default withGame(Game);

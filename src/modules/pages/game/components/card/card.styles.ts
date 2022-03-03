@@ -7,6 +7,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   padding: 10px;
   border: 1px solid;
+  border-radius: 4px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet.min}) {
     width: calc(50% - 10px);
@@ -14,6 +15,18 @@ export const Container = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktopSmall.min}) {
     width: calc(20% - 10px);
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  min-height: 0px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet.min}) {
+    min-height: 370px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktopSmall.min}) {
+    min-height: 277px;
   }
 `;
 

@@ -5,12 +5,6 @@ export interface IProps {
   fallback: unknown;
 }
 
-export interface IAnswer {
-  name: string;
-  answer: string;
-  usedHelp: boolean;
-}
-
 export interface IPropsFromServer {
   props: {
     data: TGetCharacters;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FlexContainer } from '@styles/ui/flex/flex.styles';
+import { StyledButton } from '@styles/ui/button/button.styles';
 
 export const Wrapper = styled(FlexContainer).attrs({
   $flexWrap: 'wrap',
@@ -8,4 +9,7 @@ export const Wrapper = styled(FlexContainer).attrs({
   gap: 10px;
 `;
 
-export default {};
+export const MoreButton = styled(StyledButton).attrs({ $type: 'primary' })`
+  display: table;
+  margin: 5vh auto;
+`;

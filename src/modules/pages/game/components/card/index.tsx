@@ -11,6 +11,7 @@ import {
 } from './card.helpers';
 import {
   Container,
+  ImageWrapper,
   Image,
   ButtonsWrapper,
   ActionButton,
@@ -31,7 +32,9 @@ const Card: React.FC<IProps> = ({
   setOpenModal,
 }) => (
   <Container>
-    <Image src={image} alt="?" />
+    <ImageWrapper>
+      <Image src={image} alt="?" />
+    </ImageWrapper>
     <CardInput
       registerReply={registerReply}
       setReply={handleSetReply(setSeply, setRegisterReply)}

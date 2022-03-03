@@ -4,17 +4,21 @@ import { ICharacter, ICharacterData, TGetCharacters } from './character.types';
 
 const baseUrl = `${apiConfig.url}/people`;
 
-const getCharacters = async (): Promise<TGetCharacters> => {
-  const response = await get<ICharacterData>(baseUrl);
+const getCharacters = async (page = 1): Promise<TGetCharacters> => {
+  const url = `${baseUrl}?page=${page}`;
+  const response = await get<ICharacterData>(url);
   const { status, result, error } = response;
   const { results: characters } = result;
 
   let fmtResult: Array<ICharacter> = null;
   if (!error) {
-    fmtResult = characters.map((character, index) => ({
-      ...character,
-      image: `${apiConfig.urlImages}${index + 1}.jpg`,
-    }));
+    fmtResult = characters.map((character, index) => {
+      const basePage = (page - 1) * 10 + 1;
+      return {
+        ...character,
+        image: `${apiConfig.urlImages}${index + basePage}.jpg`,
+      };
+    });
   }
 
   return {
