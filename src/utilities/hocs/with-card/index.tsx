@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 import { IProps } from './with-card.types';
+import {
+  handleSetReply,
+  handleActionButtonClick,
+  handleHelpButtonClick,
+  onHideModal,
+} from './with-card.helpers';
 
 // eslint-disable-next-line prettier/prettier
 const withCard = (Component: React.ComponentType<IProps>): React.FC<IProps> =>
@@ -37,12 +43,16 @@ const withCard = (Component: React.ComponentType<IProps>): React.FC<IProps> =>
       isDisabledInput,
       actionButtonText,
       registerReply,
-      setRegisterReply,
       reply,
-      setSeply,
-      setUsedHelp,
       openModal,
-      setOpenModal,
+      onSetReply: handleSetReply(setSeply, setRegisterReply),
+      onActionButtonClick: handleActionButtonClick(
+        reply,
+        setRegisterReply,
+        setSeply
+      ),
+      onHelpButtonClick: handleHelpButtonClick(setUsedHelp, setOpenModal),
+      onHideModal: onHideModal(setOpenModal),
     };
 
     return <Component {...props} {...hocProps} />;

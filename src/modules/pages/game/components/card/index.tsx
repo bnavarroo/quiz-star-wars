@@ -4,12 +4,6 @@ import { IProps } from '@utilities/hocs/with-card/with-card.types';
 import CardInput from '@modules/pages/game/components/card-input';
 import ModalHelp from '@modules/pages/game/components/modal-help';
 import {
-  handleSetReply,
-  handleActionButtonClick,
-  handleHelpButtonClick,
-  onHideModal,
-} from './card.helpers';
-import {
   Container,
   ImageWrapper,
   Image,
@@ -24,12 +18,12 @@ const Card: React.FC<IProps> = ({
   isDisabledInput,
   actionButtonText,
   registerReply,
-  setRegisterReply,
   reply,
-  setSeply,
-  setUsedHelp,
   openModal,
-  setOpenModal,
+  onSetReply,
+  onActionButtonClick,
+  onHelpButtonClick,
+  onHideModal,
 }) => (
   <Container>
     <ImageWrapper>
@@ -37,27 +31,22 @@ const Card: React.FC<IProps> = ({
     </ImageWrapper>
     <CardInput
       registerReply={registerReply}
-      setReply={handleSetReply(setSeply, setRegisterReply)}
+      setReply={onSetReply}
       disabled={isDisabledInput}
     />
     <ButtonsWrapper>
-      <ActionButton
-        onClick={handleActionButtonClick(reply, setRegisterReply, setSeply)}
-      >
+      <ActionButton onClick={onActionButtonClick}>
         {actionButtonText}
       </ActionButton>
       {!reply && (
-        <HelpButton
-          type="button"
-          onClick={handleHelpButtonClick(setUsedHelp, setOpenModal)}
-        >
+        <HelpButton type="button" onClick={onHelpButtonClick}>
           Ajuda
         </HelpButton>
       )}
       <ModalHelp
         character={character}
         isVisible={openModal}
-        onHide={onHideModal(setOpenModal)}
+        onHide={onHideModal}
       />
     </ButtonsWrapper>
   </Container>
