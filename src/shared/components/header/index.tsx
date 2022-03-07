@@ -1,15 +1,15 @@
 import { memo } from 'react';
 import { IProps } from './header.types';
-import { Container, Wrapper, Logo, Title } from './header.styles';
+import * as Styled from './header.styles';
 
 const Header: React.FC<IProps> = ({ children }) => (
-  <Container as="header">
-    <Wrapper>
-      <Logo />
-      <Title>StarQuiz</Title>
+  <Styled.Container as="header">
+    <Styled.Wrapper>
+      <Styled.Logo />
+      <Styled.Title>StarQuiz</Styled.Title>
       {children}
-    </Wrapper>
-  </Container>
+    </Styled.Wrapper>
+  </Styled.Container>
 );
 
 export default memo(Header);

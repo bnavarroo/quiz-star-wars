@@ -1,55 +1,51 @@
 import { memo } from 'react';
-import withCard from '@utilities/hocs/with-card';
-import { IProps } from '@utilities/hocs/with-card/with-card.types';
+import useCard from '@utilities/hooks/use-card';
 import CardInput from '@modules/pages/game/components/card-input';
 import ModalHelp from '@modules/pages/game/components/modal-help';
-import {
-  Container,
-  ImageWrapper,
-  Image,
-  ButtonsWrapper,
-  ActionButton,
-  HelpButton,
-} from './card.styles';
+import { IProps } from './card.types';
+import * as Styled from './card.styles';
 
-const Card: React.FC<IProps> = ({
-  character,
-  image,
-  isDisabledInput,
-  actionButtonText,
-  registerReply,
-  reply,
-  openModal,
-  onSetReply,
-  onActionButtonClick,
-  onHelpButtonClick,
-  onHideModal,
-}) => (
-  <Container>
-    <ImageWrapper>
-      <Image src={image} alt="?" />
-    </ImageWrapper>
-    <CardInput
-      registerReply={registerReply}
-      setReply={onSetReply}
-      disabled={isDisabledInput}
-    />
-    <ButtonsWrapper>
-      <ActionButton onClick={onActionButtonClick}>
-        {actionButtonText}
-      </ActionButton>
-      {!reply && (
-        <HelpButton type="button" onClick={onHelpButtonClick}>
-          Ajuda
-        </HelpButton>
-      )}
-      <ModalHelp
-        character={character}
-        isVisible={openModal}
-        onHide={onHideModal}
+const Card: React.FC<IProps> = ({ character, callback, endOfGame }) => {
+  const {
+    image,
+    isDisabledInput,
+    actionButtonText,
+    registerReply,
+    reply,
+    openModal,
+    onSetReply,
+    handleActionButtonClick,
+    handleHelpButtonClick,
+    onHideModal,
+  } = useCard(character, callback, endOfGame);
+
+  return (
+    <Styled.Container>
+      <Styled.ImageWrapper>
+        <Styled.Image src={image} alt="?" />
+      </Styled.ImageWrapper>
+      <CardInput
+        registerReply={registerReply}
+        setReply={onSetReply}
+        disabled={isDisabledInput}
       />
-    </ButtonsWrapper>
-  </Container>
-);
+      <Styled.ButtonsWrapper>
+        <Styled.ActionButton onClick={handleActionButtonClick}>
+          {actionButtonText}
+        </Styled.ActionButton>
+        {!reply && (
+          <Styled.HelpButton type="button" onClick={handleHelpButtonClick}>
+            Ajuda
+          </Styled.HelpButton>
+        )}
+        <ModalHelp
+          character={character}
+          isVisible={openModal}
+          onHide={onHideModal}
+        />
+      </Styled.ButtonsWrapper>
+    </Styled.Container>
+  );
+};
 
-export default withCard(memo(Card));
+export default memo(Card);

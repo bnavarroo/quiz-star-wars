@@ -8,7 +8,7 @@ import Card from '@modules/pages/game/components/card';
 import ModalResult from '@modules/pages/game/components/modal-result';
 import { IProps } from '@modules/pages/game/game.types';
 import getCharactersOnServer from '@modules/pages/game/game.helpers';
-import { Wrapper, MoreButton } from '@modules/pages/game/game.styles';
+import * as Styled from '@modules/pages/game/game.styles';
 
 const Game: NextPage<IProps> = ({ data, fallback }) => {
   const {
@@ -27,7 +27,7 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
       <Header>
         <Countdown initialTime={120} callbackEndOfTime={onFinishTime} />
       </Header>
-      <Wrapper>
+      <Styled.Wrapper>
         {characters.map((character) => (
           <Card
             key={character.name}
@@ -36,11 +36,11 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
             callback={handleUpdateAnswers}
           />
         ))}
-      </Wrapper>
+      </Styled.Wrapper>
       {!endOfList && (
-        <MoreButton onClick={handleLoadMore}>
+        <Styled.MoreButton onClick={handleLoadMore}>
           Carregar mais personagens
-        </MoreButton>
+        </Styled.MoreButton>
       )}
       {!hasTime && <ModalResult answers={answers} />}
       <PageLoader isVisible={loading} />

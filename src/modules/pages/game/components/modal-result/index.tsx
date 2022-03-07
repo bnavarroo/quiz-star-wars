@@ -3,14 +3,7 @@ import { useRouter } from 'next/router';
 import Modal from '@shared/components/modal';
 import { IProps } from './modal-result.type';
 import finishGame from './modal-result.helpers';
-import {
-  Container,
-  Title,
-  Subtitle,
-  PointsWrapper,
-  Points,
-  Message,
-} from './modal-result.styles';
+import * as Styled from './modal-result.styles';
 
 const ModalResult: React.FC<IProps> = ({ answers }) => {
   const [points, setPoints] = useState<number>(0);
@@ -29,14 +22,14 @@ const ModalResult: React.FC<IProps> = ({ answers }) => {
 
   return (
     <Modal isVisible onHide={finishGame(router)}>
-      <Container>
-        <Title>Quiz Finalizado!</Title>
-        <Subtitle>Sua pontuação foi de</Subtitle>
-        <PointsWrapper>
-          <Points>{points}</Points> pontos
-        </PointsWrapper>
-        <Message>Feche o modal para reiniciar o quiz!</Message>
-      </Container>
+      <Styled.Container>
+        <Styled.Title>Quiz Finalizado!</Styled.Title>
+        <Styled.Subtitle>Sua pontuação foi de</Styled.Subtitle>
+        <Styled.PointsWrapper>
+          <Styled.Points>{points}</Styled.Points> pontos
+        </Styled.PointsWrapper>
+        <Styled.Message>Feche o modal para reiniciar o quiz!</Styled.Message>
+      </Styled.Container>
     </Modal>
   );
 };

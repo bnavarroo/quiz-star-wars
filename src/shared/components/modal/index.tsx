@@ -2,14 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import closeModal from './modal.helpers';
 import { IProps } from './modal.types';
-import {
-  Backdrop,
-  Container,
-  Wrapper,
-  CloseButton,
-  CloseIcon,
-  Content,
-} from './modal.styles';
+import * as Styled from './modal.styles';
 
 const Modal: React.FunctionComponent<IProps> = ({
   isVisible,
@@ -24,15 +17,15 @@ const Modal: React.FunctionComponent<IProps> = ({
 
   const modalComponent = (
     <>
-      <Backdrop />
-      <Container>
-        <Wrapper>
-          <CloseButton onClick={closeModal(setOpen, onHide)}>
-            <CloseIcon />
-          </CloseButton>
-          <Content>{children}</Content>
-        </Wrapper>
-      </Container>
+      <Styled.Backdrop />
+      <Styled.Container>
+        <Styled.Wrapper>
+          <Styled.CloseButton onClick={closeModal(setOpen, onHide)}>
+            <Styled.CloseIcon />
+          </Styled.CloseButton>
+          <Styled.Content>{children}</Styled.Content>
+        </Styled.Wrapper>
+      </Styled.Container>
     </>
   );
 

@@ -1,6 +1,6 @@
 import Modal from '@shared/components/modal';
 import { IProps } from './modal-help.types';
-import { Container, Image, ListAttrs } from './modal-help.styles';
+import * as Styled from './modal-help.styles';
 
 const ModalHelp: React.FC<IProps> = ({ character, isVisible, onHide }) => {
   const {
@@ -14,9 +14,9 @@ const ModalHelp: React.FC<IProps> = ({ character, isVisible, onHide }) => {
   } = character;
   return (
     <Modal isVisible={isVisible} onHide={onHide}>
-      <Container>
-        <Image src={image} alt="?" />
-        <ListAttrs>
+      <Styled.Container>
+        <Styled.Image src={image} alt="?" />
+        <Styled.ListAttrs>
           <li>
             <b>Altura: </b>
             {height} cm
@@ -41,8 +41,8 @@ const ModalHelp: React.FC<IProps> = ({ character, isVisible, onHide }) => {
             <b>Gênero: </b>
             {gender}
           </li>
-        </ListAttrs>
-      </Container>
+        </Styled.ListAttrs>
+      </Styled.Container>
     </Modal>
   );
 };

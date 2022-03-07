@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { IProps } from './card-input.types';
-import Input from './card-input.styles';
+import * as Styled from './card-input.styles';
 
 const CardInput: React.FC<IProps> = ({ setReply, registerReply, disabled }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -13,7 +13,7 @@ const CardInput: React.FC<IProps> = ({ setReply, registerReply, disabled }) => {
   }, [registerReply]);
 
   return (
-    <Input
+    <Styled.Input
       ref={ref}
       type="text"
       placeholder="E aí, sabe meu nome?"
