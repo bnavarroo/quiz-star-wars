@@ -38,7 +38,9 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
         ))}
       </Wrapper>
       {!endOfList && (
-        <MoreButton onClick={handleLoadMore}>Carregar mais personagens</MoreButton>
+        <MoreButton onClick={handleLoadMore}>
+          Carregar mais personagens
+        </MoreButton>
       )}
       {!hasTime && <ModalResult answers={answers} />}
       <PageLoader isVisible={loading} />

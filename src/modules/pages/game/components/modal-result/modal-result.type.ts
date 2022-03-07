@@ -1,4 +1,4 @@
-import { IAnswer } from '@utilities/hocs/with-game/with-game.types';
+import { IAnswer } from '@utilities/hooks/use-game/use-game.types';
 
 export interface IProps {
   answers: Array<IAnswer>;

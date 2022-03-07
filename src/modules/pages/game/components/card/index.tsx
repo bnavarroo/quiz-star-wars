@@ -52,4 +52,4 @@ const Card: React.FC<IProps> = ({
   </Container>
 );
 
-export default memo(withCard(Card));
+export default withCard(memo(Card));
