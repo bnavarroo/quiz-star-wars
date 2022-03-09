@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@mocks*": [ "src/__mocks__*" ],
       "@assets*": [ "src/assets*" ],
       "@core*": [ "src/core*" ],
       "@modules*": [ "src/modules*" ],
