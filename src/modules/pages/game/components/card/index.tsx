@@ -5,7 +5,11 @@ import ModalHelp from '@modules/pages/game/components/modal-help';
 import { IProps } from './card.types';
 import * as Styled from './card.styles';
 
-const Card: React.FC<IProps> = ({ character, callback, endOfGame }) => {
+export const CardComponent: React.FC<IProps> = ({
+  character,
+  callback,
+  endOfGame,
+}) => {
   const {
     image,
     isDisabledInput,
@@ -48,4 +52,4 @@ const Card: React.FC<IProps> = ({ character, callback, endOfGame }) => {
   );
 };
 
-export default memo(Card);
+export default memo(CardComponent);

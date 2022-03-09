@@ -2,7 +2,11 @@ import Modal from '@shared/components/modal';
 import { IProps } from './modal-help.types';
 import * as Styled from './modal-help.styles';
 
-const ModalHelp: React.FC<IProps> = ({ character, isVisible, onHide }) => {
+export const ModalHelpComponent: React.FC<IProps> = ({
+  character,
+  isVisible,
+  onHide,
+}) => {
   const {
     image,
     height,
@@ -47,4 +51,4 @@ const ModalHelp: React.FC<IProps> = ({ character, isVisible, onHide }) => {
   );
 };
 
-export default ModalHelp;
+export default ModalHelpComponent;

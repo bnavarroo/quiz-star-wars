@@ -5,7 +5,7 @@ import { IProps } from './modal-result.type';
 import finishGame from './modal-result.helpers';
 import * as Styled from './modal-result.styles';
 
-const ModalResult: React.FC<IProps> = ({ answers }) => {
+export const ModalResultComponent: React.FC<IProps> = ({ answers }) => {
   const [points, setPoints] = useState<number>(0);
   const router = useRouter();
 
@@ -34,4 +34,4 @@ const ModalResult: React.FC<IProps> = ({ answers }) => {
   );
 };
 
-export default ModalResult;
+export default ModalResultComponent;

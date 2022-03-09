@@ -2,7 +2,11 @@ import { useRef, useEffect } from 'react';
 import { IProps } from './card-input.types';
 import * as Styled from './card-input.styles';
 
-const CardInput: React.FC<IProps> = ({ setReply, registerReply, disabled }) => {
+export const CardInputComponent: React.FC<IProps> = ({
+  setReply,
+  registerReply,
+  disabled,
+}) => {
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -22,4 +26,4 @@ const CardInput: React.FC<IProps> = ({ setReply, registerReply, disabled }) => {
   );
 };
 
-export default CardInput;
+export default CardInputComponent;
