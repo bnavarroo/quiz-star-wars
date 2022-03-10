@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { IProps } from './header.types';
 import * as Styled from './header.styles';
 
-const Header: React.FC<IProps> = ({ children }) => (
+export const HeaderComponent: React.FC<IProps> = ({ children }) => (
   <Styled.Container as="header">
     <Styled.Wrapper>
       <Styled.Logo />
@@ -12,4 +12,4 @@ const Header: React.FC<IProps> = ({ children }) => (
   </Styled.Container>
 );
 
-export default memo(Header);
+export default memo(HeaderComponent);

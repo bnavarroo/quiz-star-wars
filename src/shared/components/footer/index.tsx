@@ -4,7 +4,7 @@ import LinkedinLogo from '@assets/img/linkedin-logo.svg';
 import { footerLinkProps } from './footer.helpers';
 import * as Styled from './footer.styles';
 
-const Footer: React.FC = () => (
+export const FooterComponent: React.FC = () => (
   <Styled.Container>
     <Styled.Wrapper className="no-pseudo">
       <Styled.DevelopByText>
@@ -30,4 +30,4 @@ const Footer: React.FC = () => (
   </Styled.Container>
 );
 
-export default memo(Footer);
+export default memo(FooterComponent);
