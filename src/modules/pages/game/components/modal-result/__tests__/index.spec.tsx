@@ -14,6 +14,11 @@ describe('testing ModalResult component', () => {
       answer: 'mock',
       usedHelp: true,
     },
+    {
+      name: 'mock',
+      answer: 'outromock',
+      usedHelp: false,
+    },
   ];
 
   it('should ModalResultComponent render whitout errors', () => {
