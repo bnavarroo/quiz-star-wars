@@ -1,10 +1,6 @@
 import { ICharacter } from '@core/api/character/character.types';
-import { IAnswer } from '@utilities/hooks/use-game/use-game.types';
+import { IForwardCardProps } from '@modules/pages/game/components/card-list/card-list.types';
 
-export type TCallbackProp = (arg: IAnswer) => void;
-
-export interface IProps {
+export interface IProps extends IForwardCardProps {
   character: ICharacter;
-  callback: TCallbackProp;
-  endOfGame: boolean;
 }

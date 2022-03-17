@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme';
 import { characterMock } from '@mocks/character';
-import { CardComponent } from '../index';
+import { CardListComponent } from '../index';
 
 describe('testing Card component', () => {
-  it('should CardComponent render whitout errors', () => {
+  it('should CardListComponent render whitout errors', () => {
     const wrapper = shallow(
-      <CardComponent
-        character={characterMock}
+      <CardListComponent
+        listCharacters={[characterMock]}
         callback={jest.fn()}
         endOfGame={false}
       />

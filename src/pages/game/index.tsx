@@ -4,7 +4,7 @@ import Header from '@shared/components/header';
 import Countdown from '@shared/components/countdown';
 import PageLoader from '@shared/components/page-loader';
 import useGame from '@utilities/hooks/use-game';
-import Card from '@modules/pages/game/components/card';
+import CardList from '@modules/pages/game/components/card-list';
 import ModalResult from '@modules/pages/game/components/modal-result';
 import { IProps } from '@modules/pages/game/game.types';
 import getCharactersOnServer from '@modules/pages/game/game.helpers';
@@ -27,16 +27,11 @@ const Game: NextPage<IProps> = ({ data, fallback }) => {
       <Header>
         <Countdown initialTime={120} callbackEndOfTime={onFinishTime} />
       </Header>
-      <Styled.Wrapper>
-        {characters.map((character) => (
-          <Card
-            key={character.name}
-            character={character}
-            endOfGame={!hasTime}
-            callback={handleUpdateAnswers}
-          />
-        ))}
-      </Styled.Wrapper>
+      <CardList
+        listCharacters={characters}
+        endOfGame={!hasTime}
+        callback={handleUpdateAnswers}
+      />
       {!endOfList && (
         <Styled.MoreButton onClick={handleLoadMore}>
           Carregar mais personagens
