@@ -1,6 +1,6 @@
 import { characterMock } from '@mocks/character';
 import * as HttpHelpers from '@utilities/http/http.helpers';
-import getCharacters from '../character.helpers';
+import { getCharacters } from '../character.helpers';
 
 jest.mock('@utilities/http/http.helpers');
 
