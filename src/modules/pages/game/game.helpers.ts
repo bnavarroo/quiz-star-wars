@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import getCharacters from '@core/api/character/character.helpers';
+import { getCharacters } from '@core/api/character/character.helpers';
 import { IPropsFromServer } from './game.types';
 
 const getCharactersOnServer = async (): Promise<IPropsFromServer> => {

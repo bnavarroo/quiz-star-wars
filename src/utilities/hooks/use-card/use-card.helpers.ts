@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Dispatch, SetStateAction } from 'react';
+import { IAnswer } from '@utilities/hooks/use-game/use-game.types';
 
 export const handleSetReply = (
   setSeply: Dispatch<SetStateAction<string>>,
@@ -38,4 +39,21 @@ export const hideModal = (
 ) =>
   (): void => {
     setOpenModal(false);
+  };
+
+
+export const onReplyIsChanged = (
+  reply: string,
+  callback: (arg: IAnswer) => void,
+  name: string,
+  usedHelp: boolean,
+) =>
+  (): void => {
+    if (reply.length > 0) {
+      callback({
+        name,
+        answer: reply,
+        usedHelp,
+      });
+    }
   };

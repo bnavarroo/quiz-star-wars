@@ -6,8 +6,8 @@ describe('testing Card component', () => {
   it('should CardListComponent render whitout errors', () => {
     const wrapper = shallow(
       <CardListComponent
-        listCharacters={[characterMock]}
-        callback={jest.fn()}
+        preRenderingCharacters={[characterMock]}
+        handleUpdateAnswers={jest.fn()}
         endOfGame={false}
       />
     );

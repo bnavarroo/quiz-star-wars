@@ -7,6 +7,7 @@ import {
   actionButtonClick,
   helpButtonClick,
   hideModal,
+  onReplyIsChanged,
 } from './use-card.helpers';
 
 const useCard = (
@@ -19,19 +20,11 @@ const useCard = (
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [usedHelp, setUsedHelp] = useState<boolean>(false);
 
-  useEffect(() => {
-    setOpenModal(false);
-  }, [endOfGame]);
+  useEffect(hideModal(setOpenModal), [endOfGame]);
 
-  useEffect(() => {
-    if (reply.length > 0) {
-      callback({
-        name: character.name,
-        answer: reply,
-        usedHelp,
-      });
-    }
-  }, [reply]);
+  useEffect(onReplyIsChanged(reply, callback, character?.name, usedHelp), [
+    reply,
+  ]);
 
   const { image } = character;
 

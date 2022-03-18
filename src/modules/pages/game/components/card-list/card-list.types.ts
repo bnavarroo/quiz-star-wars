@@ -4,10 +4,10 @@ import { IAnswer } from '@utilities/hooks/use-game/use-game.types';
 export type TCallbackProp = (arg: IAnswer) => void;
 
 export interface IForwardCardProps {
-  callback: TCallbackProp;
+  handleUpdateAnswers: TCallbackProp;
   endOfGame: boolean;
 }
 
 export interface IProps extends IForwardCardProps {
-  listCharacters: Array<ICharacter>;
+  preRenderingCharacters: Array<ICharacter>;
 }

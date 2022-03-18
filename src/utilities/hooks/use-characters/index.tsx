@@ -1,39 +1,36 @@
-import { useState, useEffect } from 'react';
-import getCharacters from '@core/api/character/character.helpers';
-import { ICharacter } from '@core/api/character/character.types';
-import { loadMore } from './use-characters.helpers';
+import { useState } from 'react';
+import useSWR from 'swr';
+import { statusMessages, get } from '@utilities/http/http.helpers';
+import apiConfig from '@core/api/api.helpers';
+import {
+  ICharacterData,
+  ICharacter,
+} from '@core/api/character/character.types';
+import { IHttpResponse } from '@utilities/http/http.types';
+import { fmtCharactersResult } from '@core/api/character/character.helpers';
+import { pageChange } from './use-characters.helpers';
 import { IProps } from './use-characters.types';
 
-const useCharacters = (data: Array<ICharacter> = []): IProps => {
-  const [characters, setCharacters] = useState<Array<ICharacter>>(data);
+const useCharacters = (initialPage = 1): IProps => {
   const [page, setPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [endOfList, setEndOfList] = useState<boolean>(data?.length === 0);
 
-  useEffect(() => {
-    const updateCharacters = async () => {
-      if (page > 1) {
-        const moreData = await getCharacters(page);
-        const { error, message, result: moreResults } = moreData;
-        if (!error) {
-          setCharacters([...characters, ...moreResults]);
-        } else {
-          setEndOfList(true);
-          // eslint-disable-next-line no-alert
-          alert(message?.description ?? message?.text);
-        }
-        setLoading(false);
-      }
-    };
-
-    updateCharacters();
-  }, [page]);
+  const callFromApi = page >= initialPage;
+  const url = callFromApi ? `${apiConfig.url}/people?page=${page}` : null;
+  const { data, error } = useSWR<IHttpResponse<ICharacterData>>(url, get);
+  const { status, result } = data ?? {};
+  const formattedResult: Array<ICharacter> = error
+    ? null
+    : fmtCharactersResult(result?.results, page, apiConfig.urlImages);
 
   return {
-    characters,
-    loading,
-    endOfList,
-    handleLoadMore: loadMore(page, setPage, setLoading),
+    characters: formattedResult,
+    loading: callFromApi && !data,
+    error,
+    message: error ? statusMessages[status] : '',
+    endOfList: !formattedResult && page > 1,
+    callFromApi,
+    page,
+    handlePageChange: pageChange(page, setPage),
   };
 };
 

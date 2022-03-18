@@ -1,12 +1,10 @@
-import { IProps as IUseCharactersProps } from '@utilities/hooks/use-characters/use-characters.types';
-
 export interface IAnswer {
   name: string;
   answer: string;
   usedHelp: boolean;
 }
 
-export interface IProps extends IUseCharactersProps {
+export interface IProps {
   hasTime: boolean;
   answers: Array<IAnswer>;
   onFinishTime: () => void;

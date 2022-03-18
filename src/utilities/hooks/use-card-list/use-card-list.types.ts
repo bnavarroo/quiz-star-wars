@@ -1,12 +1,8 @@
 import { ICharacter } from '@core/api/character/character.types';
 
 export interface IProps {
-  characters: Array<ICharacter>;
-  error: boolean;
-  loading: boolean;
-  message?: string;
+  currentCharacters: Array<ICharacter>;
   endOfList: boolean;
-  callFromApi: boolean;
-  page: number;
+  loading: boolean;
   handlePageChange: () => void;
 }

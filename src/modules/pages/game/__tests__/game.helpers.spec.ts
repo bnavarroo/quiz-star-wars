@@ -3,7 +3,10 @@ import getCharactersOnServer from '../game.helpers';
 
 jest.mock('@core/api/character/character.helpers');
 
-const mockCharacterApiHelpers = CharacterApiHelpers as { default: jest.Mock };
+const mockCharacterApiHelpers = CharacterApiHelpers as {
+  getCharacters: jest.Mock;
+  fmtCharactersResult: jest.Mock;
+};
 
 describe('testing Game helpers', () => {
   it('should showPageLoader function be called and execute try instruction', async () => {
@@ -14,7 +17,7 @@ describe('testing Game helpers', () => {
   });
 
   it('should showPageLoader function be called and execute catch instruction', async () => {
-    mockCharacterApiHelpers.default.mockImplementation(
+    mockCharacterApiHelpers.getCharacters.mockImplementation(
       jest.fn(() => {
         throw new Error();
       })

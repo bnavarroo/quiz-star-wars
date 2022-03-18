@@ -6,6 +6,15 @@ jest.mock('@modules/pages/game/game.helpers', () =>
   jest.fn().mockReturnValue({ data: 'mock' })
 );
 
+jest.mock('@utilities/hooks/use-game', () =>
+  jest.fn().mockReturnValue({
+    hasTime: false,
+    answers: [],
+    onFinishTime: jest.fn(),
+    handleUpdateAnswers: jest.fn(),
+  })
+);
+
 describe('testing game page', () => {
   it('should page be render', () => {
     const wrapper = shallow(<Game data={getCharactersMock} fallback={null} />);

@@ -7,7 +7,7 @@ import * as Styled from './card.styles';
 
 export const CardComponent: React.FC<IProps> = ({
   character,
-  callback,
+  handleUpdateAnswers,
   endOfGame,
 }) => {
   const {
@@ -21,7 +21,7 @@ export const CardComponent: React.FC<IProps> = ({
     handleActionButtonClick,
     handleHelpButtonClick,
     onHideModal,
-  } = useCard(character, callback, endOfGame);
+  } = useCard(character, handleUpdateAnswers, endOfGame);
 
   return (
     <Styled.Container>
